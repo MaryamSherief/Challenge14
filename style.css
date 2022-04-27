@@ -1,0 +1,218 @@
+:root {
+    --Linear-Gradient: hsl(236, 72%, 79%),hsl(237, 63%, 64%);
+    --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue: hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: hsl(232, 13%, 33%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--Very-Light-Grayish-Blue);
+    background-image: url(images/bg-top.svg),url(images/bg-bottom.svg);
+    background-repeat: no-repeat;
+    background-position: top right, bottom left;
+}
+
+.top-part {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.top-part h1 {
+    color: var(--Dark-Grayish-Blue);
+    font-size: 2rem;
+}
+
+.toggle-part {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.toggle-part p {
+    font-size: 15px;
+    color: var(--Light-Grayish-Blue);
+}
+
+.toggle-part input {
+    appearance: none;
+    width: 2.8rem;
+    height: 1.6rem;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, var(--Linear-Gradient));
+    cursor: pointer;
+    position: relative;
+}
+
+.toggle-part input::after {
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 13%;
+    left: 8%;
+    transition: .2s;
+}
+
+.toggle-part input:hover {
+    background-image: linear-gradient(hsl(236, 72%, 79%),hsl(236, 72%, 79%));
+    transition: .2s;
+}
+
+.toggle-part input:checked::after {
+    left: 52%;
+    transition: .2s;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 22rem;
+}
+
+.card1,
+.card3 {
+    background-color: #fff;
+    color: var(--Grayish-Blue);
+}
+
+.card2 {
+    background-image: linear-gradient(to bottom right, var(--Linear-Gradient));
+    color: #fff;
+}
+
+.card2 h3 {
+    margin-top: 1rem;
+}
+
+.card h1 {
+    margin: 2rem 0;
+    font-size: 4rem;
+}
+
+.card1 h1,
+.card3 h1 {
+    color: var(--Dark-Grayish-Blue);
+}
+
+.card .info {
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.card .info p {
+    padding: 1rem 0;
+    font-size: 15px;
+}
+
+.card2 .info p:first-child,
+.card2 .info p:last-child {
+    border-top: 2px solid hsl(236, 72%, 79%);
+    border-bottom: 2px solid hsl(236, 72%, 79%);
+}
+
+.card1 .info p:first-child,
+.card1 .info p:last-child,
+.card3 .info p:first-child,
+.card3 .info p:last-child {
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+button {
+    width: 100%;
+    padding: .8rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+
+.card1 button,
+.card3 button {
+    background-image: linear-gradient(to right, var(--Linear-Gradient));
+    color: #fff;
+}
+
+.card1 button:hover,
+.card3 button:hover {
+    border: 2px solid var(--Grayish-Blue);
+    background-image: none;
+    background-color: transparent;
+    color: hsl(237, 63%, 64%);
+}
+
+.card2 button {
+    color: hsl(237, 63%, 64%);
+    margin-bottom: 1.1rem;
+}
+
+.card2 button:hover {
+    color: #fff;
+    background-image: none;
+    background-color: transparent;
+}
+
+button:active {
+    transform: scale(.9);
+    transition: .3s;
+}
+
+.card1,
+.card3 {
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 1080px) {
+    body {
+        margin: 5%;
+        background-image: url(images/bg-top.svg);
+    }
+    main {
+        flex-direction: column;
+        gap: 2rem
+    }
+    .card2 button {
+        margin: 0;
+    }
+    .toggle-part input::after {
+        top: 13%;
+    }
+}
+
+
+@media (max-width: 378px) {
+    .toggle-part input::after {
+        top: 11%;
+    }
+}
